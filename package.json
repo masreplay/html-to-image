@@ -1,0 +1,45 @@
+{
+  "name":"html_to_image",
+  "version": "0.1.0",
+  "description": "turn html to image service",
+  "scripts": {
+    "lint": "eslint .",
+    "clean": "rimraf dist",
+    "clean:hard": "rimraf dist && rimraf node_modules",
+    "start:dev": "nodemon src/server.ts",
+    "start:prod": "node dist/server.js",
+    "build": "rimraf dist && tsc"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1048.0",
+    "compression": "^1.7.4",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "morgan": "^1.10.0",
+    "puppeteer": "^13.0.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.4",
+    "@types/compression": "^1.7.2",
+    "@types/express": "^4.17.13",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^16.7.13",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^7.32.0",
+    "nodemon": "^2.0.15",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  },
+  "keywords": [
+    "entity",
+    "node",
+    "typescript"
+  ],
+  "repository": "https://github.com/masreplay/htmltoimage",
+  "main": "dist/server.js",
+  "license": "MIT"
+}
