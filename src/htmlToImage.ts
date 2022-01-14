@@ -4,7 +4,12 @@ export default async (html: string) => {
     const browser = await puppeteer.launch({
         headless: true,
         ignoreHTTPSErrors: true,
-        args: ['--viewport="800,600,deviceScaleFactor=2"'],
+        args: [
+            '--viewport="800,600,deviceScaleFactor=2"',
+            '--no-sandbox',
+            '--disable-setuid-sandbox'
+        
+        ],
         defaultViewport: {
             width: 1200,
             height: 600
