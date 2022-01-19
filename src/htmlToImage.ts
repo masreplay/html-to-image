@@ -16,8 +16,11 @@ export default async (html: string) => {
         }
     });
     const page = await browser.newPage();
+    await page.evaluateHandle('document.fonts.ready');
 
     await page.setContent(html);
+
+    
 
     const content = await page.$('body');
     const imageBuffer = await content?.screenshot({ omitBackground: true });
