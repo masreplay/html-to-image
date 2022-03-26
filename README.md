@@ -11,3 +11,7 @@
 ```
 pm2 start npm -- start
 ```
+or
+```
+docker-compose up
+```
