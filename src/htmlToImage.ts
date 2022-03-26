@@ -1,32 +1,29 @@
 import puppeteer from 'puppeteer';
 
 export default async (html: string) => {
-    const browser = await puppeteer.launch({
-        headless: true,
-        ignoreHTTPSErrors: true,
-        args: [
-            '--viewport="800,600,deviceScaleFactor=2"',
-            '--no-sandbox',
-            '--disable-setuid-sandbox'
-        
-        ],
-        defaultViewport: {
-            width: 1200,
-            height: 600
-        }
-    });
-    const page = await browser.newPage();
-    await page.evaluateHandle('document.fonts.ready');
+  const browser = await puppeteer.launch({
+    headless: true,
+    ignoreHTTPSErrors: true,
+    args: [
+      '--viewport="800,600,deviceScaleFactor=2"',
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+    ],
+    defaultViewport: {
+      width: 1200,
+      height: 600,
+    },
+  });
 
-    await page.setContent(html);
+  const page = await browser.newPage();
+  await page.evaluateHandle('document.fonts.ready');
+  await page.setContent(html);
 
-    
+  const content = await page.$('body');
+  const imageBuffer = await content?.screenshot({ omitBackground: true });
 
-    const content = await page.$('body');
-    const imageBuffer = await content?.screenshot({ omitBackground: true });
+  await page.close();
+  await browser.close();
 
-    await page.close();
-    await browser.close();
-
-    return imageBuffer;
+  return imageBuffer;
 };
