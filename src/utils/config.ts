@@ -4,10 +4,7 @@ dotenv.config({
   path: '.env',
 });
 
-
-
 export const PORT = process.env.PORT || 3000;
-
 export const SECRET_KEY = process.env.SECRET_KEY;
 export const API_PREFIX = process.env.API_PREFIX as string;
 export const ACCESS_KEY_ID = process.env.ACCESS_KEY_ID as string;
