@@ -16,9 +16,6 @@ app.use(express.urlencoded({ extended: true }));
 // Logging
 app.use(morgan('dev'));
 
-
 app.use(router);
-
-
 
 export { app };
